@@ -49,11 +49,42 @@ const suffixes = ["st", "nd", "rd", "th", "th", "th"];
 for (let i = 0; i < colors.length; i++) {
     console.log(`My ${i + 1}${suffixes[i]} choice is ${colors[i]}`);
 }
-// ====== Daily Challenge 2
+
 //  Exercise 3 : Repeat the question
-//Q1 Prompt the user for a number, Hint : Check the data type you receive from the prompt (ie. Use the typeof method)
-//Q2 While the number is smaller than 10 continue asking the user for a new number.
-let number = parseInt(Prompt("Please enter a number:"));   
-console.log(typeof number);
-   
+
+let Usernumber = parseInt(prompt("Please enter your number:"));//Q1 Prompt the user for a number, Hint : Check the data type you receive from the prompt (ie. Use the typeof method)
+console.log(typeof(Usernumber));
+console.log(`Your number is : ${Usernumber}!`);
+while(Usernumber < 10) {
+    let Usernumber = parseInt(prompt("Please enter a new number:"));
+} //Q2 While the number is smaller than 10 continue asking the user for a new number.
+
+// 🌟 Exercise 4 : Building Management
+const building = {
+    numberOfFloors: 4,
+    numberOfAptByFloor: {
+        firstFloor: 3,
+        secondFloor: 4,
+        thirdFloor: 9,
+        fourthFloor: 2,
+    },
+    nameOfTenants: ["Sarah", "Dan", "David"],
+    numberOfRoomsAndRent:  {
+        sarah: [3, 990],
+        dan:  [4, 1000],
+        david: [1, 500],
+    },
+}
+console.log(building.numberOfFloors);
+console.log( 'First floor number is : '+  building.numberOfAptByFloor.firstFloor +' and the second floor number is : '+ building.numberOfAptByFloor.thirdFloor);
+console.log('the name of the second tenant is : ' +building.nameOfTenants[1] +' and the number of rooms he has in his apartment is : '+ building.numberOfRoomsAndRent.dan[0]);
+Sumofsarahanddavidrent = (building.numberOfRoomsAndRent.sarah[1] + building.numberOfRoomsAndRent.david[1]);
+console.log('Sum of Sarah and David\'s rent is : ' + Sumofsarahanddavidrent);
+if(Sumofsarahanddavidrent > building.numberOfRoomsAndRent.dan[1]){
+    building.numberOfRoomsAndRent.dan[1] = 1200;
+    console.log('Dan\'s rent has been increased to : ' + building.numberOfRoomsAndRent.dan[1]);
+}else{
+    console.log('Dan\'s rent is bigger than the sum of sarah and david\'s : ' + building.numberOfRoomsAndRent.dan[1]);
+}
+// ====== Daily Challenge 2
 // ====== Daily Challenge 3
