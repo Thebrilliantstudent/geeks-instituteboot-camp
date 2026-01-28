@@ -86,5 +86,39 @@ if(Sumofsarahanddavidrent > building.numberOfRoomsAndRent.dan[1]){
 }else{
     console.log('Dan\'s rent is bigger than the sum of sarah and david\'s : ' + building.numberOfRoomsAndRent.dan[1]);
 }
-// ====== Daily Challenge 2
+//🌟 Exercise 5 : Family
+//Create an object called family with a few key value pairs.
+const family = {
+    father: ["John", 20],
+       mother: ["Jane", 18],
+       son: ["Junior", 5],
+       daughter: ["Janie", 3],
+   };    
+//Using a for loop, console.log the keys of the object.
+for (let member in family) {
+    console.log(member);
+}
+for(let nameandage in family){
+    console.log(family[nameandage]);
+}
+//Exercise 6 : Rudolf
+const details = {
+  my: 'name',
+  is: 'Rudolf',
+  the: 'reindeer'
+}
+//Given the object above and using a for loop, console.log “my name is Rudolf the reindeer”
+for (let key in details) {
+    console.log(`${key} ${details[key]}`);
+}
+//Exercise 7 : Secret Group
+const names = ["Jack", "Philip", "Sarah", "Amanda", "Bernard", "Kyle"];
+//A group of friends have decided to start a secret society. The society’s name will be the first letter of each of their names sorted in alphabetical order.
+let societyName = "";
+names.sort();
+for (let i = 0; i < names.length; i++) {
+    societyName += names[i][0];
+}
+console.log(societyName); //Console.log the name of their secret society. The output should be “ABJKPS” 
+   // ====== Daily Challenge 2
 // ====== Daily Challenge 3
