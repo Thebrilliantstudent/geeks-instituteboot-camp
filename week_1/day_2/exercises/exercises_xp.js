@@ -206,14 +206,14 @@ totalVacationCost();
         secondLiOfSecondUl.remove();
         
         // 4. Change the name of the first <li> of each <ul> to your name (using a loop)
-        const yourName = 'Alex'; // Change this to your actual name
+        const yourName = 'Ismail'; // Change this to your actual name
         allUls.forEach(ul => {
             const firstLi = ul.querySelector('li');
             firstLi.textContent = yourName;
         });
         
         
-        // SECTION 3: Using JavaScript
+
         
         // 1. Add a class called student_list to both of the <ul>'s
         allUls.forEach(ul => {
@@ -224,7 +224,7 @@ totalVacationCost();
         firstUl.classList.add('university', 'attendance');
         
         
-        // SECTION 4: Using JavaScript
+     
         
         // 1. Add a "light blue" background color and some padding to the <div>
         mainDiv.style.backgroundColor = 'lightblue';
@@ -250,7 +250,7 @@ totalVacationCost();
         document.body.style.fontSize = '18px';
         
         
-        // SECTION 5: Bonus
+        //  Bonus
         // If the background color of the div is "light blue", alert "Hello x and y" 
         // (x and y are the users in the div)
         const computedStyle = window.getComputedStyle(mainDiv);
@@ -280,55 +280,6 @@ totalVacationCost();
             }
         }
     
-// const containerDiv = document.getElementById("container");
-// console.log(containerDiv);
-
-// const peteLi = document.querySelector('.list li:nth-child(2)');
-// peteLi.textContent = "Richard";
-
-// const secondUl = document.querySelectorAll(".list")[1];
-// const secondLi = secondUl.querySelectorAll("li")[1]
-// secondUl.removeChild(secondLi)
-
-// const myName = "ismail"
-// const firstLis = document.querySelectorAll('.list li:first-child')
-// firstLis.forEach(li => li.textContent = myName)
-
-// const addClass = document.querySelectorAll('.list')
-// addClass.forEach(ul => {
-//     ul.classList.add("student_list")
-// })
-
-// addClass[0].classList.add("university", "attendance")
-// console.log(addClass);
-
-// containerDiv.style.background = "lightblue"
-// containerDiv.style.padding = "15px"
-
-// const allList = document.querySelectorAll("li")
-// allList.forEach(li => {
-//     if (li.textContent === "Dan")
-//         li.style.display = "none"
-// })
-
-// allList.forEach(li => {
-//     if (li.textContent === "Richard") {
-//         li.style.border = "2px solid red"
-
-//     }
-// })
-
-// const getBody = document.getElementsByTagName("body")[0]
-// getBody.style.fontSize = "25px"
-
-// // // Bonus
-// if(containerDiv.style.background === "lightblue") {
-//     const users = document.querySelectorAll('.list li')
-//     const userName = []
-
-//     users.forEach(li => userName.push(li.textContent));
-//     alert("Hello " + userName.join(" and "))
-// }
 
 // // ===== Exercise 6
 
