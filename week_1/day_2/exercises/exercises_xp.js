@@ -283,22 +283,27 @@ totalVacationCost();
 
 // // ===== Exercise 6
 
-// const navBar  = document.getElementById("navBar")
-// navBar.setAttribute("id", "socialNetworkNavigation")
-
-// const ul = document.querySelector("#socialNetworkNavigation ul")
-// const addLi = document.createElement("li")
-// const text = document.createTextNode("Logout")
-// addLi.appendChild(text)
-// ul.appendChild(addLi)
-// console.log(ul);
+const divElement = document.querySelector('#navBar'); 
+divElement.setAttribute('id', 'socialNetworkNavigation');
 
 
-// const firstLi = ul.firstElementChild;
-// const lastLi = ul.lastElementChild;
+const newListItem = document.createElement('li');
 
-// console.log(firstLi.textContent);
-// console.log(lastLi.textContent);
+
+const logoutText = document.createTextNode('Logout');
+
+newListItem.appendChild(logoutText);
+
+
+const ulElement = document.querySelector('ul'); 
+
+
+const firstLi = ulElement.firstElementChild;
+const lastLi = ulElement.lastElementChild;
+
+
+console.log('First <li> text:', firstLi.textContent);
+console.log('Last <li> text:', lastLi.textContent);
 
 
 // // ===== Exercise 7
