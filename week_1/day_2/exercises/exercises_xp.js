@@ -62,183 +62,330 @@ function changeEnough(itemPrice, amountOfChange) {
     else
         return false
 }
-
+console.log(changeEnough(4.25, [25, 20, 5, 0]));
+console.log(changeEnough(14.11, [2,100,0,0]));
+console.log(changeEnough(0.75, [0,0,20,5]));
 // ===== Exercise 4
-
 function hotelCost() {
-    let numberNihgts
+    
+    //  Calculate the total cost of hotel stay.
+    //  Prompts user for number of nights and returns total cost at $140/night.
+     
     while (true) {
-        numberNihgts = Number(prompt("what the number of nights stay in hotel"))
-        if (!isNaN(numberNihgts) && numberNihgts > 0)
-            break;
-        else
-            alert("please enter valid number of nights")
+        let nights = prompt("How many nights would you like to stay in the hotel?");
+        
+        // Check if user cancelled or didn't enter anything
+        if (nights === null || nights.trim() === "") {
+            alert("Please enter a valid number.");
+            continue;
+        }
+        
+        // Convert to number and validate
+        nights = Number(nights);
+        
+        if (isNaN(nights) || nights <= 0) {
+            alert("Please enter a valid number.");
+            continue;
+        }
+        
+        return nights * 140;
     }
-
-    const pricesNights = 140
-    const totalPrices = numberNihgts * pricesNights
-    return totalPrices
 }
+
 
 function planeRideCost() {
-    let destination
-    while(true){
-        destination = String(prompt("Where do you want to go?").trim())
-        if (destination && isNaN(destination))
-            break
-        else
-            alert("please enter valid destination : ")
-    }
-
-    const dest = destination.toLowerCase()
-
-    switch (dest) {
-        case "london":
-            return 183
-        case "paris":
-            return 220
-        default:
-            return 300
+    
+    //   Calculate the cost of plane tickets based on destination.
+    //   Returns $183 for London, $220 for Paris, $300 for all other destinations.
+     
+    while (true) {
+        let destination = prompt("What is your destination?");
+        
+        // Check if user cancelled or didn't enter anything
+        if (destination === null || destination.trim() === "") {
+            alert("Please enter a valid destination.");
+            continue;
+        }
+        
+        // Check if it's a string (it always will be from prompt, but we validate it's not empty)
+        if (typeof destination !== 'string') {
+            alert("Please enter a valid destination.");
+            continue;
+        }
+        
+        destination = destination.trim().toLowerCase();
+        
+        if (destination === "london") {
+            return 183;
+        } else if (destination === "paris") {
+            return 220;
+        } else {
+            return 300;
+        }
     }
 }
+
 
 function rentalCarCost() {
-    let rentCar
-    while(true) {
-        rentCar = Number(prompt("how many day you rent the car : "))
-        if(!isNaN(rentCar) && rentCar > 0)
-            break
-        else
-            alert("please enter the valid number of rent car days : ")
+    
+    //   Calculate the cost of renting a car with 5% discount for rentals over 10 days.
+    //   Car costs $40 per day.
+     
+    while (true) {
+        let days = prompt("How many days would you like to rent the car?");
+        
+        // Check if user cancelled or didn't enter anything
+        if (days === null || days.trim() === "") {
+            alert("Please enter a valid number.");
+            continue;
+        }
+        
+        // Convert to number and validate
+        days = Number(days);
+        
+        if (isNaN(days) || days <= 0) {
+            alert("Please enter a valid number.");
+            continue;
+        }
+        
+        let total = days * 40;
+        
+        // Apply 5% discount if renting for more than 10 days
+        if (days > 10) {
+            total = total * 0.95;
+        }
+        
+        return total;
     }
-
-    const carCost = 40
-    if (rentCar > 10)
-        return carCost * rentCar * 0.95
-    else
-        return carCost*rentCar
-
 }
+
 
 function totalVacationCost() {
-    const hotel = hotelCost();
-    const plane = planeRideCost();
-    const car = rentalCarCost();
-
-    console.log(`The hotel cost: $${hotel}, the plane tickets cost: $${plane}, the car cost: $${car}`);
-    return hotel + plane + car;
+    
+    //   Calculate the total vacation cost by calling all cost functions.
+    //   Displays breakdown of costs and returns the total.
+     
+    alert("Let's calculate your vacation costs!");
+    
+    let hotel = hotelCost();
+    let plane = planeRideCost();
+    let car = rentalCarCost();
+    
+    let total = hotel + plane + car;
+    
+    // Display the breakdown
+    let message = "--- Vacation Cost Breakdown ---\n";
+    message += `Hotel cost: $${hotel}\n`;
+    message += `Plane tickets cost: $${plane}\n`;
+    message += `Car rental cost: $${car}\n`;
+    message += `Total vacation cost: $${total}`;
+    
+    alert(message);
+    console.log(message);
+    
+    return total;
 }
 
-console.log("The total cost of your vacation is: $" + total);
 
-// ===== Exercise 5
+// Call the main function
+totalVacationCost();
+// // ===== Exercise 5        
+       // 1. Retrieve the div and console.log it
+        const mainDiv = document.getElementById('mainDiv');
+        console.log('Main div:', mainDiv);
+        
+        // 2. Change the name "Pete" to "Richard"
+        const allUls = document.querySelectorAll('ul');
+        const firstUl = allUls[0];
+        const firstLiOfFirstUl = firstUl.querySelector('li');
+        firstLiOfFirstUl.textContent = 'Richard';
+        
+        // 3. Delete the second <li> of the second <ul>
+        const secondUl = allUls[1];
+        const secondLiOfSecondUl = secondUl.querySelectorAll('li')[1];
+        secondLiOfSecondUl.remove();
+        
+        // 4. Change the name of the first <li> of each <ul> to your name (using a loop)
+        const yourName = 'Alex'; // Change this to your actual name
+        allUls.forEach(ul => {
+            const firstLi = ul.querySelector('li');
+            firstLi.textContent = yourName;
+        });
+        
+        
+        // SECTION 3: Using JavaScript
+        
+        // 1. Add a class called student_list to both of the <ul>'s
+        allUls.forEach(ul => {
+            ul.classList.add('student_list');
+        });
+        
+        // 2. Add the classes university and attendance to the first <ul>
+        firstUl.classList.add('university', 'attendance');
+        
+        
+        // SECTION 4: Using JavaScript
+        
+        // 1. Add a "light blue" background color and some padding to the <div>
+        mainDiv.style.backgroundColor = 'lightblue';
+        mainDiv.style.padding = '20px';
+        
+        // 2. Do not display the <li> that contains the text node "Dan" (the last <li> of the first <ul>)
+        const allLisInFirstUl = firstUl.querySelectorAll('li');
+        allLisInFirstUl.forEach(li => {
+            if (li.textContent === 'Dan') {
+                li.style.display = 'none';
+            }
+        });
+        
+        // 3. Add a border to the <li> that contains the text node "Richard" (the second <li> of the <ul>)
+        const allLisInSecondUl = secondUl.querySelectorAll('li');
+        allLisInSecondUl.forEach(li => {
+            if (li.textContent === 'Richard') {
+                li.style.border = '2px solid black';
+            }
+        });
+        
+        // 4. Change the font size of the whole body
+        document.body.style.fontSize = '18px';
+        
+        
+        // SECTION 5: Bonus
+        // If the background color of the div is "light blue", alert "Hello x and y" 
+        // (x and y are the users in the div)
+        const computedStyle = window.getComputedStyle(mainDiv);
+        const bgColor = computedStyle.backgroundColor;
+        
+        // Convert "lightblue" to RGB to compare (lightblue = rgb(173, 216, 230))
+        // Or we can check if it contains "lightblue" in the style attribute
+        if (mainDiv.style.backgroundColor === 'lightblue') {
+            // Get all li elements within the div
+            const allLis = mainDiv.querySelectorAll('li');
+            const users = [];
+            
+            allLis.forEach(li => {
+                // Only add visible list items
+                if (li.style.display !== 'none' && li.textContent.trim() !== '') {
+                    users.push(li.textContent);
+                }
+            });
+            
+            // Remove duplicates
+            const uniqueUsers = [...new Set(users)];
+            
+            if (uniqueUsers.length >= 2) {
+                alert(`Hello ${uniqueUsers[0]} and ${uniqueUsers[1]}`);
+            } else if (uniqueUsers.length === 1) {
+                alert(`Hello ${uniqueUsers[0]}`);
+            }
+        }
+    
+// const containerDiv = document.getElementById("container");
+// console.log(containerDiv);
 
-const containerDiv = document.getElementById("container");
-console.log(containerDiv);
+// const peteLi = document.querySelector('.list li:nth-child(2)');
+// peteLi.textContent = "Richard";
 
-const peteLi = document.querySelector('.list li:nth-child(2)');
-peteLi.textContent = "Richard";
+// const secondUl = document.querySelectorAll(".list")[1];
+// const secondLi = secondUl.querySelectorAll("li")[1]
+// secondUl.removeChild(secondLi)
 
-const secondUl = document.querySelectorAll(".list")[1];
-const secondLi = secondUl.querySelectorAll("li")[1]
-secondUl.removeChild(secondLi)
+// const myName = "ismail"
+// const firstLis = document.querySelectorAll('.list li:first-child')
+// firstLis.forEach(li => li.textContent = myName)
 
-const myName = "ismail"
-const firstLis = document.querySelectorAll('.list li:first-child')
-firstLis.forEach(li => li.textContent = myName)
+// const addClass = document.querySelectorAll('.list')
+// addClass.forEach(ul => {
+//     ul.classList.add("student_list")
+// })
 
-const addClass = document.querySelectorAll('.list')
-addClass.forEach(ul => {
-    ul.classList.add("student_list")
-})
+// addClass[0].classList.add("university", "attendance")
+// console.log(addClass);
 
-addClass[0].classList.add("university", "attendance")
-console.log(addClass);
+// containerDiv.style.background = "lightblue"
+// containerDiv.style.padding = "15px"
 
-containerDiv.style.background = "lightblue"
-containerDiv.style.padding = "15px"
+// const allList = document.querySelectorAll("li")
+// allList.forEach(li => {
+//     if (li.textContent === "Dan")
+//         li.style.display = "none"
+// })
 
-const allList = document.querySelectorAll("li")
-allList.forEach(li => {
-    if (li.textContent === "Dan")
-        li.style.display = "none"
-})
+// allList.forEach(li => {
+//     if (li.textContent === "Richard") {
+//         li.style.border = "2px solid red"
 
-allList.forEach(li => {
-    if (li.textContent === "Richard") {
-        li.style.border = "2px solid red"
+//     }
+// })
 
-    }
-})
+// const getBody = document.getElementsByTagName("body")[0]
+// getBody.style.fontSize = "25px"
 
-const getBody = document.getElementsByTagName("body")[0]
-getBody.style.fontSize = "25px"
+// // // Bonus
+// if(containerDiv.style.background === "lightblue") {
+//     const users = document.querySelectorAll('.list li')
+//     const userName = []
 
-// // Bonus
-if(containerDiv.style.background === "lightblue") {
-    const users = document.querySelectorAll('.list li')
-    const userName = []
+//     users.forEach(li => userName.push(li.textContent));
+//     alert("Hello " + userName.join(" and "))
+// }
 
-    users.forEach(li => userName.push(li.textContent));
-    alert("Hello " + userName.join(" and "))
-}
+// // ===== Exercise 6
 
-// ===== Exercise 6
+// const navBar  = document.getElementById("navBar")
+// navBar.setAttribute("id", "socialNetworkNavigation")
 
-const navBar  = document.getElementById("navBar")
-navBar.setAttribute("id", "socialNetworkNavigation")
-
-const ul = document.querySelector("#socialNetworkNavigation ul")
-const addLi = document.createElement("li")
-const text = document.createTextNode("Logout")
-addLi.appendChild(text)
-ul.appendChild(addLi)
-console.log(ul);
+// const ul = document.querySelector("#socialNetworkNavigation ul")
+// const addLi = document.createElement("li")
+// const text = document.createTextNode("Logout")
+// addLi.appendChild(text)
+// ul.appendChild(addLi)
+// console.log(ul);
 
 
-const firstLi = ul.firstElementChild;
-const lastLi = ul.lastElementChild;
+// const firstLi = ul.firstElementChild;
+// const lastLi = ul.lastElementChild;
 
-console.log(firstLi.textContent);
-console.log(lastLi.textContent);
-
-
-// ===== Exercise 7
-
-const allBooks = [
-    {
-        title: "Harry Potter",
-        author: "J.K. Rowling",
-        image: "https://covers.openlibrary.org/b/id/7984916-L.jpg",
-        alreadyRead: true
-    },
-    {
-        title: "The Alchemist",
-        author: "Paulo Coelho",
-        image: "https://covers.openlibrary.org/b/id/8278326-L.jpg",
-        alreadyRead: false
-    }
-];
-
-const section = document.querySelector(".listBooks")
-
-for (let book of allBooks) {
-    const div = document.createElement("div")
-
-    const p = document.createElement("p")
-    p.textContent = `${book.title}  written by ${book.author}`
-
-    const img = document.createElement("img")
-    img.src = book.image
-    img.style.width = "100px"
+// console.log(firstLi.textContent);
+// console.log(lastLi.textContent);
 
 
-    if(book.alreadyRead === true)
-        p.style.color = "red"
+// // ===== Exercise 7
 
-    div.appendChild(p)
-    div.appendChild(img)
-    section.appendChild(div)
-}
+// const allBooks = [
+//     {
+//         title: "Harry Potter",
+//         author: "J.K. Rowling",
+//         image: "https://covers.openlibrary.org/b/id/7984916-L.jpg",
+//         alreadyRead: true
+//     },
+//     {
+//         title: "The Alchemist",
+//         author: "Paulo Coelho",
+//         image: "https://covers.openlibrary.org/b/id/8278326-L.jpg",
+//         alreadyRead: false
+//     }
+// ];
+
+// const section = document.querySelector(".listBooks")
+
+// for (let book of allBooks) {
+//     const div = document.createElement("div")
+
+//     const p = document.createElement("p")
+//     p.textContent = `${book.title}  written by ${book.author}`
+
+//     const img = document.createElement("img")
+//     img.src = book.image
+//     img.style.width = "100px"
+
+
+//     if(book.alreadyRead === true)
+//         p.style.color = "red"
+
+//     div.appendChild(p)
+//     div.appendChild(img)
+//     section.appendChild(div)
+// }
 
 
