@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="exercises_xp.js" defer></script>
+    <title>Exercices xp</title>
+    <script src="exercises_xp.js"></script>
+    
 </head>
 <body>
-    <div id="container">Users:</div>
+      <div id="container">Users:</div>
 <ul class="list">
     <li>John</li>
     <li>Pete</li>
@@ -26,5 +27,55 @@
         <li><a href="#">My Pics</a></li>
     </ul>
 </div>
+  <h1>My Book List</h1>
+    <section class="listBooks"></section>
+
+    <script>
+    
+        const allBooks = [
+            {
+                title: "Harry Potter and the Philosopher's Stone",
+                author: "J.K. Rowling",
+                image: "https://covers.openlibrary.org/b/id/7725635-M.jpg",
+                alreadyRead: true
+            },
+            {
+                title: "The Great Gatsby",
+                author: "F. Scott Fitzgerald",
+                image: "https://covers.openlibrary.org/b/id/7725454-M.jpg",
+                alreadyRead: false
+            }
+        ];
+
+       
+        const listBooksSection = document.querySelector('.listBooks');
+
+       
+        allBooks.forEach(book => {
+           
+            const bookDiv = document.createElement('div');
+            bookDiv.className = 'book';
+
+           
+            const bookDetails = document.createElement('div');
+            bookDetails.className = 'book-details';
+            if (book.alreadyRead) {
+                bookDetails.classList.add('read');
+            }
+
+         
+            const bookImage = document.createElement('img');
+            bookImage.src = book.image;
+            bookImage.alt = book.title;
+            bookDiv.appendChild(bookImage);
+
+           
+            bookDetails.innerHTML = `<strong>${book.title}</strong> written by ${book.author}.`;
+            bookDiv.appendChild(bookDetails);
+
+    
+            listBooksSection.appendChild(bookDiv);
+        });
+    </script>
 </body>
 </html>

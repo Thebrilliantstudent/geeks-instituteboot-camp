@@ -308,40 +308,24 @@ console.log('Last <li> text:', lastLi.textContent);
 
 // // ===== Exercise 7
 
-// const allBooks = [
-//     {
-//         title: "Harry Potter",
-//         author: "J.K. Rowling",
-//         image: "https://covers.openlibrary.org/b/id/7984916-L.jpg",
-//         alreadyRead: true
-//     },
-//     {
-//         title: "The Alchemist",
-//         author: "Paulo Coelho",
-//         image: "https://covers.openlibrary.org/b/id/8278326-L.jpg",
-//         alreadyRead: false
-//     }
-// ];
 
-// const section = document.querySelector(".listBooks")
+        
 
-// for (let book of allBooks) {
-//     const div = document.createElement("div")
+      
+        allBooks.forEach(book => {
+            const bookDiv = document.createElement('div');
+            bookDiv.className = 'book';
+            const bookDetails = document.createElement('div');
+            bookDetails.className = 'book-details';
+            if (book.alreadyRead) {
+                bookDetails.classList.add('read');
+            }
+            const bookImage = document.createElement('img');
+            bookImage.src = book.image;
+            bookImage.alt = book.title;
+            bookDiv.appendChild(bookImage);
 
-//     const p = document.createElement("p")
-//     p.textContent = `${book.title}  written by ${book.author}`
-
-//     const img = document.createElement("img")
-//     img.src = book.image
-//     img.style.width = "100px"
-
-
-//     if(book.alreadyRead === true)
-//         p.style.color = "red"
-
-//     div.appendChild(p)
-//     div.appendChild(img)
-//     section.appendChild(div)
-// }
-
-
+            bookDetails.innerHTML = `<strong>${book.title}</strong> written by ${book.author}.`;
+            bookDiv.appendChild(bookDetails);
+            listBooksSection.appendChild(bookDiv);
+        });
