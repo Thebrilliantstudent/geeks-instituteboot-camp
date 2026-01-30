@@ -61,10 +61,7 @@ function changeEnough(itemPrice, amountOfChange) {
         return true
     else
         return false
-
 }
-
-console.log(changeEnough(4.25, [25, 20, 5, 0]))
 
 // ===== Exercise 4
 
@@ -146,7 +143,7 @@ const secondUl = document.querySelectorAll(".list")[1];
 const secondLi = secondUl.querySelectorAll("li")[1]
 secondUl.removeChild(secondLi)
 
-const myName = "walid"
+const myName = "ismail"
 const firstLis = document.querySelectorAll('.list li:first-child')
 firstLis.forEach(li => li.textContent = myName)
 
