@@ -51,3 +51,4 @@ console.log(isOmnipresent([[1, 1], [1, 3], [5, 1], [6, 1]], 6)); //➞ false
 
 // ===== Exercise 5
 //Javascript code to color all diagonal table cells in red.
+// Script in the Html page : page2.html
