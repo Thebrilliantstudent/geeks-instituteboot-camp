@@ -95,3 +95,4 @@ console.log(uniqueElements([1, 2, 2, 3, 4, 4, 5]));
 //     document.body.innerHTML += html;
 // }
 // createCalendar(2024, 6);
+// the same code exist on html page 
