@@ -5,6 +5,7 @@
     <title>Exercices gold</title>
     <script src="exercises_xp.js"></script>
     <script src="exercises_xp_gold.js"></script>
+    <script src="exercises_xp_ninja.js"></script>
   <style>
     table {
       border-collapse: collapse;
@@ -134,6 +135,88 @@
     
             listBooksSection.appendChild(bookDiv);
         });
+  </script>
+  <script>
+    function createCalendar(year, month) {
+  // Get the first day of the month (0 = Sunday, 1 = Monday, etc.)
+  const firstDay = new Date(year, month - 1, 1).getDay();
+  
+  // Get the number of days in the month
+  const daysInMonth = new Date(year, month, 0).getDate();
+  
+  // Create the table element
+  const table = document.createElement('table');
+  
+  // Create the header row with weekday names
+  const thead = document.createElement('thead');
+  const headerRow = document.createElement('tr');
+  const weekdays = ['MO', 'TU', 'WE', 'TH', 'FR', 'SA', 'SU'];
+  
+  weekdays.forEach(day => {
+    const th = document.createElement('th');
+    th.textContent = day;
+    headerRow.appendChild(th);
+  });
+  
+  thead.appendChild(headerRow);
+  table.appendChild(thead);
+  
+  // Create the table body
+  const tbody = document.createElement('tbody');
+  
+  // Adjust firstDay: convert from Sunday=0 to Monday=0
+  // Sunday (0) becomes 6, Monday (1) becomes 0, etc.
+  const adjustedFirstDay = firstDay === 0 ? 6 : firstDay - 1;
+  
+  let currentDay = 1;
+  let row = document.createElement('tr');
+  
+  // Fill empty cells before the first day of the month
+  for (let i = 0; i < adjustedFirstDay; i++) {
+    const td = document.createElement('td');
+    td.textContent = '.';
+    row.appendChild(td);
+  }
+  
+  // Fill in the days of the month
+  for (let i = adjustedFirstDay; i < 7; i++) {
+    const td = document.createElement('td');
+    td.textContent = currentDay;
+    row.appendChild(td);
+    currentDay++;
+  }
+  
+  tbody.appendChild(row);
+  
+  // Create remaining rows
+  while (currentDay <= daysInMonth) {
+    row = document.createElement('tr');
+    
+    for (let i = 0; i < 7 && currentDay <= daysInMonth; i++) {
+      const td = document.createElement('td');
+      td.textContent = currentDay;
+      row.appendChild(td);
+      currentDay++;
+    }
+    
+    // Fill remaining cells with dots if needed
+    while (row.children.length < 7) {
+      const td = document.createElement('td');
+      td.textContent = '.';
+      row.appendChild(td);
+    }
+    
+    tbody.appendChild(row);
+  }
+  
+  table.appendChild(tbody);
+  
+  // Append the table to the document body (or wherever you want)
+  document.body.appendChild(table);
+}
+
+// Example usage:
+createCalendar(2012, 9);
   </script>
 </body>
 </html>
