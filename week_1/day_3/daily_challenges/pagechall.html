@@ -1,0 +1,80 @@
+html challenge 2
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        input {
+            padding: 10px;
+            font-size: 16px;
+            width: 250px;
+        }
+    </style>
+</head>
+
+<body>
+    
+    
+     <h1>Mad Libs</h1>
+
+    <form id="libform">
+        <label for="noun">Noun:</label><input type="text" id="noun"><br>
+        <label for="adjective">Adjective:</label><input type="text" id="adjective"><br>
+        <label for="person">Someone's Name:</label><input type="text" id="person"><br>
+        <label for="verb">Verb:</label><input type="text" id="verb"><br>
+        <label for="place">A place:</label><input type="text" id="place"><br>
+        <button id="lib-button">Lib it!</button>
+    </form>
+    <p>Generated story: 
+    <span id="story"></span>
+    </p>
+
+    
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    input {
+      padding: 10px;
+      font-size: 16px;
+      width: 300px;
+      border: 2px solid #ccc;
+      border-radius: 4px;
+    }
+    label {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+  </style>
+
+  <label for="letterInput">Enter letters only:</label>
+  <input type="text" id="letterInput" placeholder="Type here...">
+
+  <script>
+    const input = document.getElementById('letterInput');
+
+   
+
+    //: Using input event (removes non-letters after typing)
+    
+    input.addEventListener('input', function(event) {
+      this.value = this.value.replace(/[^a-zA-Z]/g, '');
+    });
+
+  </script>
+
+
+    <script src="challenges.js"></script>
+</body>
+
+</html>
