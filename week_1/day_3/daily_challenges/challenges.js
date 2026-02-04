@@ -1,3 +1,15 @@
+
+// ====== Daily Challenge 2
+ const input = document.getElementById('letterInput');
+
+   
+
+    //: Using input event (removes non-letters after typing)
+    
+    input.addEventListener('input', function(event) {
+      this.value = this.value.replace(/[^a-zA-Z]/g, '');
+    });
+
 // ====== Daily Challenge 1
 const btn = document.getElementById('lib-button')
 const shuffleBtn = document.getElementById('shuffle-button')
@@ -46,13 +58,3 @@ shuffleBtn.addEventListener('click', function () {
 
     document.getElementById('story').textContent = randomStory;
 })
-// ====== Daily Challenge 2
- const input = document.getElementById('letterInput');
-
-   
-
-    //: Using input event (removes non-letters after typing)
-    
-    input.addEventListener('input', function(event) {
-      this.value = this.value.replace(/[^a-zA-Z]/g, '');
-    });
