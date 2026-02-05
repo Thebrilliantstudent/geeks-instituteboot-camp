@@ -187,24 +187,35 @@ function totalVacationCost() {
 }
 
 
-// Call the main function
+//Call the main function
 totalVacationCost();
 // // ===== Exercise 5        
        // 1. Retrieve the div and console.log it
-        const mainDiv = document.getElementById('mainDiv');
-        console.log('Main div:', mainDiv);
+        let retrive = document.getElementById("container");
+        console.log(retrive);
+     
+       //change Pete to Richard
+       
+       let change = document.querySelectorAll("li");
+       change.textContent = "Richard";
+       console.log(change);
+        // const mainDiv = document.getElementById('container');
+        // console.log('Main div:', mainDiv);
         
-        // 2. Change the name "Pete" to "Richard"
-        const allUls = document.querySelectorAll('ul');
-        const firstUl = allUls[0];
-        const firstLiOfFirstUl = firstUl.querySelector('li');
-        firstLiOfFirstUl.textContent = 'Richard';
         
         // 3. Delete the second <li> of the second <ul>
-        const secondUl = allUls[1];
-        const secondLiOfSecondUl = secondUl.querySelectorAll('li')[1];
-        secondLiOfSecondUl.remove();
-        
+        const allUls = document.querySelectorAll('ul');
+console.log("Found", allUls.length, "ul elements");  // Debug
+
+if (allUls[1]) {  // Check if second ul exists
+  const secondUl = allUls[1];
+  const secondLiOfSecondUl = secondUl.querySelectorAll('li')[1];
+  if (secondLiOfSecondUl) {  // Also check if second li exists
+    secondLiOfSecondUl.remove();
+  }
+} else {
+  console.log("Second <ul> not found!");
+}
         // 4. Change the name of the first <li> of each <ul> to your name (using a loop)
         const yourName = 'Ismail'; // Change this to your actual name
         allUls.forEach(ul => {
@@ -213,18 +224,25 @@ totalVacationCost();
         });
         
         
-
+//3
         
         // 1. Add a class called student_list to both of the <ul>'s
         allUls.forEach(ul => {
             ul.classList.add('student_list');
         });
         
+        // // 2. Add the classes university and attendance to the first <ul>
+        // firstUl.classList.add('university', 'attendance');
         // 2. Add the classes university and attendance to the first <ul>
-        firstUl.classList.add('university', 'attendance');
+
+// First, select the first ul element
+const firstUl = document.querySelector('ul');
+
+// Then add the classes
+firstUl.classList.add('university', 'attendance');
         
         
-     
+     //4
         
         // 1. Add a "light blue" background color and some padding to the <div>
         mainDiv.style.backgroundColor = 'lightblue';
@@ -281,7 +299,7 @@ totalVacationCost();
         }
     
 
-// // ===== Exercise 6
+// ===== Exercise 6
 
 const divElement = document.querySelector('#navBar'); 
 divElement.setAttribute('id', 'socialNetworkNavigation');
