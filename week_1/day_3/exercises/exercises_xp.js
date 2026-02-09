@@ -38,6 +38,7 @@ secondParagraph.addEventListener('mouseover', function() {
     secondParagraph.style.opacity = '0'; // Fade out the paragraph
 });
 // ===== Exercise 2
+//1
 const formelement = document.querySelector('form');
 console.log(formelement);
 
@@ -52,19 +53,91 @@ inputselementbyid.addEventListener('click', function(event) {
     console.log('Last Name:', lastname);
 
 });
-//by name
-const inputselementbyname = document.querySelector('input[name="submit"]');
-inputselementbyname.addEventListener('click', function(event) {
-    //on click console log inputs values
-    const firstname = document.getElementsByName('firstname')[0].value;
-    const lastname = document.getElementsByName('lastname')[0].value;
-    event.preventDefault(); 
-    console.log('First Name:', firstname);
-    console.log('Last Name:', lastname);
 
-});
+
+form.addEventListener('submit', function (e) {
+    e.preventDefault()
+
+    const fnameValue = fnameById.value.trim()
+    const lnameValue = lnameById.value.trim()
+
+    if(fnameValue === "" || lnameValue === ""){
+        alert("please fill in both first name or last name")
+        return;
+    }
+
+    const ul = document.getElementsByClassName('usersAnswer')[0]
+    const liFirst = document.createElement('li')
+    const liLast = document.createElement('li')
+
+    liFirst.textContent = "first name is : " + fnameValue
+    ul.appendChild(liFirst)
+
+    liLast.textContent = "last name is : " + lnameValue
+    ul.appendChild(liLast)
+
+    fnameById.value = ""
+    lnameById.value = ""
+})
+
 // ===== Exercise 3
+
+var allBoldItems;
+
+function getBoldItems() {
+    let bold_items = document.getElementsByTagName('strong');
+    allBoldItems = Array.from(bold_items)
+    console.log(allBoldItems)
+}
+
+getBoldItems()
+
+function highlight() {
+    allBoldItems.forEach(item => {
+        item.style.color = "blue"
+    });
+}
+
+function returnItemsToDefault() {
+    allBoldItems.forEach(item => {
+        item.style.color = "black"
+    })
+}
+
+const p = document.querySelector("p")
+
+p.addEventListener('mouseover', function () {
+    highlight()
+})
+
+p.addEventListener('mouseout', function () {
+    returnItemsToDefault()
+})
 
 // ===== Exercise 4
 
-// ===== Exercise ...
+const form = document.getElementById("MyForm")
+const radiusInput = document.getElementById("radius")
+const volumeInput = document.getElementById("volume")
+
+function calculeSphere(r) {
+    let result = (4 / 3) * Math.PI * Math.pow(r, 3);
+    return result.toFixed(2)
+}
+
+form.addEventListener('submit', function (e) {
+    e.preventDefault()
+
+    const radiusValue = parseFloat(radiusInput.value)
+
+    if (isNaN(radiusValue) || radiusValue <= 0) {
+        alert("Please enter a valid positive number for the radius.");
+        return;
+    }
+    
+    const volume = calculeSphere(radiusValue)
+    volumeInput.value = volume
+})
+
+console.log(calculeSphere(5))
+
